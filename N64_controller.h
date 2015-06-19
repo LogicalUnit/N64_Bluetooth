@@ -49,7 +49,7 @@ class N64_controller
     void N64_get(byte * output, byte length);
     
   private:
-   // N64_status status;
+    N64_status status;
 };
 
 #endif

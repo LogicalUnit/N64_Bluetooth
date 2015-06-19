@@ -31,11 +31,11 @@ void loop()
 
   noInterrupts();  
   byte sendBuf[] = { 0x01 };
-  controller.N64_send(sendBuf, sizeof sendBuf); 
-  N64_status status; 
-  controller.N64_get((byte*) &status, sizeof status);
-  //controller.sendStatusByte();
-  //status = controller.getStatus();
+  //controller.N64_send(sendBuf, sizeof sendBuf); 
+  controller.sendStatusByte();
+  //N64_status status; 
+  //controller.N64_get((byte*) &status, sizeof status);
+  status = controller.getStatus();
   interrupts();
 
 //  delay(1000);
