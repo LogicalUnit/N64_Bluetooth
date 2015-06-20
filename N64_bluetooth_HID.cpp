@@ -40,9 +40,13 @@ void N64_bluetooth_HID::sendUpdate(N64_status status)
   Serial.write(status.data2);   
 }
 
-void N64_bluetooth_HID::loop()
+void N64_bluetooth_HID::updateController()
 {
   controller.sendStatusByte();
   controller.receiveStatus();
+}
+
+void N64_bluetooth_HID::sendBluetooth()
+{
   sendUpdate(controller.getStatus());
 }

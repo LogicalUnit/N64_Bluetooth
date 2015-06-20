@@ -13,14 +13,19 @@ void setup()
 
 void loop()
 { 
-  noInterrupts();  
-  hid.loop();
   //byte sendBuf[] = { COMMAND_STATUS };
+  
+  noInterrupts();  
+  hid.updateController();
   //controller.N64_send(sendBuf, sizeof sendBuf); 
   //controller.sendStatusByte();
   //controller.N64_get((byte*) &status, sizeof status);
-  //status = controller.getStatus();
+  //controller.receiveStatus();
   interrupts();
+  
+  //status = controller.getStatus();
+   
+  hid.sendBluetooth();
   
  /*
   if (memcmp (&status, &oldStatus, sizeof status) != 0)
