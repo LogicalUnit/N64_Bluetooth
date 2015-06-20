@@ -43,6 +43,6 @@ void N64_bluetooth_HID::sendUpdate(N64_status status)
 void N64_bluetooth_HID::loop()
 {
   controller.sendStatusByte();
-  N64_status status = controller.getStatus();
+  status = controller.getStatus();
   sendUpdate(status);
 }
