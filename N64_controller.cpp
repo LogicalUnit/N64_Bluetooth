@@ -137,16 +137,13 @@ void N64_controller::sendStatusByte()
   nop; nop; nop; nop; nop; nop;*/
 }
 
-//N64_status status;
+void N64_controller::receiveStatus()
+{
+ N64_get((byte *) &status, sizeof status); 
+}
 
 N64_status N64_controller::getStatus()
 {
- //N64_status status; 
- N64_get((byte *) &status, sizeof status);
-/* Serial.println(status.data1);
- Serial.println(status.data2);
- Serial.println(status.stick_x);
- Serial.println(status.stick_y);*/
  return status; 
 }
 

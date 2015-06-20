@@ -49,6 +49,7 @@ class N64_controller
     N64_controller();
     
     void sendStatusByte();
+    void receiveStatus();
     N64_status getStatus();
     
     void N64_send (byte * output, byte length);
