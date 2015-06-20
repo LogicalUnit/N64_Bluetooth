@@ -1,7 +1,7 @@
 #include "N64_controller.h"
 
 N64_controller controller;
-N64_status status;
+N64_status status, oldStatus;
 
 void setup()
 {
@@ -30,7 +30,7 @@ void loop()
 
 
   noInterrupts();  
-  byte sendBuf[] = { 0x01 };
+//  byte sendBuf[] = { 0x01 };
   //controller.N64_send(sendBuf, sizeof sendBuf); 
   controller.sendStatusByte();
   //N64_status status; 
@@ -41,58 +41,13 @@ void loop()
 //  delay(1000);
   
   
-  static N64_status oldStatus;
+//  static N64_status oldStatus;
  
   if (memcmp (&status, &oldStatus, sizeof status) != 0)
-    {
-    if (status.stick_x || oldStatus.stick_x)
-      {
-      Serial.print ("X: ");
-      Serial.print ((int) status.stick_x);
-      Serial.print (" ");
-      }
-    if (status.stick_y || oldStatus.stick_y)
-      {
-      Serial.print ("Y: ");
-      Serial.print ((int) status.stick_y);
-      Serial.print (" ");
-      }     
+  { 
+    printN64status(status);
     oldStatus = status;
-    if (status.data2 &  BUTTON_C_RIGHT)
-      Serial.print (F("C right "));
-    if (status.data2 &  BUTTON_C_LEFT)
-      Serial.print (F("C left "));
-    if (status.data2 &  BUTTON_C_UP)
-      Serial.print (F("C up "));
-    if (status.data2 &  BUTTON_C_DOWN)
-      Serial.print (F("C down "));
-    if (status.data2 &  BUTTON_R)
-      Serial.print (F("R "));
-    if (status.data2 &  BUTTON_L)
-      Serial.print (F("L "));    
-    if (status.data1 &  BUTTON_D_RIGHT)
-      Serial.print (F("D right "));
-    if (status.data1 &  BUTTON_D_LEFT)
-      Serial.print (F("D left "));
-    if (status.data1 &  BUTTON_D_UP)
-      Serial.print (F("D up "));
-    if (status.data1 &  BUTTON_D_DOWN)
-      Serial.print (F("D down "));
-    if (status.data1 &  BUTTON_START)
-      Serial.print (F("Start "));
-    if (status.data1 &  BUTTON_Z)
-      Serial.print (F("Z "));
-    if (status.data1 &  BUTTON_B)
-      Serial.print (F("B "));
-    if (status.data1 &  BUTTON_A)
-      Serial.print (F("A "));
-    
-    if (status.data1 == 0 && status.data2 == 0)
-      Serial.print (F("(no buttons)"));
-    Serial.println ();
-    Serial.flush ();
- 
-    }
+  }
     
     delay(200);
    

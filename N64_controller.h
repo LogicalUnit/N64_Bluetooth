@@ -37,6 +37,8 @@ typedef struct {
 } N64_status;
 
 
+void printN64status(N64_status status);
+
 class N64_controller
 {
   public:
