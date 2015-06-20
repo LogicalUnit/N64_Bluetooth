@@ -30,10 +30,6 @@ void N64_bluetooth_HID::sendUpdate(N64_status status)
   //invert y-axis
   status.stick_y = -status.stick_y;
 
-  //  int x = 0;
-
-  int y = 1;
-
   Serial.write(0xFD);
   Serial.write(6);
   Serial.write(status.stick_x);
