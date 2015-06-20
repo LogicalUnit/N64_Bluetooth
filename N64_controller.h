@@ -34,10 +34,10 @@ const byte COMMAND_IDENTIFY = 0x00;
 const byte COMMAND_STATUS = 0x01;
 
 typedef struct {
-    byte data1;
-    byte data2;
-    char stick_x;
-    char stick_y;
+  byte data1;
+  byte data2;
+  char stick_x;
+  char stick_y;
 } N64_status;
 
 
@@ -47,14 +47,14 @@ class N64_controller
 {
   public:
     N64_controller();
-    
+
     void sendStatusByte();
     void receiveStatus();
     N64_status getStatus();
-    
+
     void N64_send (byte * output, byte length);
     void N64_get(byte * output, byte length);
-    
+
   private:
     N64_status status;
 };

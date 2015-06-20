@@ -16,9 +16,9 @@ class N64_bluetooth_HID
     void setup();
     void updateController();
     void sendBluetooth();
-  
+
   private:
-    N64_controller controller;    
+    N64_controller controller;
     void sendUpdate(N64_status status);
 };
 
