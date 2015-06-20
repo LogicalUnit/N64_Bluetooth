@@ -32,8 +32,8 @@ void N64_bluetooth_HID::sendUpdate(N64_status status)
   
   Serial.write(0xFD);
   Serial.write(6);
-  Serial.write((int)status.stick_x);
-  Serial.write((int)status.stick_y);
+  Serial.write(status.stick_x);
+  Serial.write(status.stick_y);
   Serial.write(0);
   Serial.write(0);
   Serial.write(status.data1);
