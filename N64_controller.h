@@ -29,6 +29,10 @@ const byte BUTTON_C_UP = 0x08;
 const byte BUTTON_R = 0x10;
 const byte BUTTON_L = 0x20;
 
+//Controller commands
+const byte COMMAND_IDENTIFY = 0x00;
+const byte COMMAND_STATUS = 0x01;
+
 typedef struct {
     byte data1;
     byte data2;
