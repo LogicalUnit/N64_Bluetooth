@@ -18,7 +18,6 @@ class N64_bluetooth_HID
   
   private:
     N64_controller controller;    
-    N64_status status;
     void sendUpdate(N64_status status);
 };
 
