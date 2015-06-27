@@ -268,36 +268,36 @@ void printN64status(N64_status status)
     Serial.print ((int) status.stick_y);
     Serial.print (" ");
 
-    if (status.data2 &  BUTTON_C_RIGHT)
+    if (status.buttons2 &  BUTTON_C_RIGHT)
       Serial.print (F("C right "));
-    if (status.data2 &  BUTTON_C_LEFT)
+    if (status.buttons2 &  BUTTON_C_LEFT)
       Serial.print (F("C left "));
-    if (status.data2 &  BUTTON_C_UP)
+    if (status.buttons2 &  BUTTON_C_UP)
       Serial.print (F("C up "));
-    if (status.data2 &  BUTTON_C_DOWN)
+    if (status.buttons2 &  BUTTON_C_DOWN)
       Serial.print (F("C down "));
-    if (status.data2 &  BUTTON_R)
+    if (status.buttons2 &  BUTTON_R)
       Serial.print (F("R "));
-    if (status.data2 &  BUTTON_L)
+    if (status.buttons2 &  BUTTON_L)
       Serial.print (F("L "));
-    if (status.data1 &  BUTTON_D_RIGHT)
+    if (status.buttons1 &  BUTTON_D_RIGHT)
       Serial.print (F("D right "));
-    if (status.data1 &  BUTTON_D_LEFT)
+    if (status.buttons1 &  BUTTON_D_LEFT)
       Serial.print (F("D left "));
-    if (status.data1 &  BUTTON_D_UP)
+    if (status.buttons1 &  BUTTON_D_UP)
       Serial.print (F("D up "));
-    if (status.data1 &  BUTTON_D_DOWN)
+    if (status.buttons1 &  BUTTON_D_DOWN)
       Serial.print (F("D down "));
-    if (status.data1 &  BUTTON_START)
+    if (status.buttons1 &  BUTTON_START)
       Serial.print (F("Start "));
-    if (status.data1 &  BUTTON_Z)
+    if (status.buttons1 &  BUTTON_Z)
       Serial.print (F("Z "));
-    if (status.data1 &  BUTTON_B)
+    if (status.buttons1 &  BUTTON_B)
       Serial.print (F("B "));
-    if (status.data1 &  BUTTON_A)
+    if (status.buttons1 &  BUTTON_A)
       Serial.print (F("A "));
 
-    if (status.data1 == 0 && status.data2 == 0)
+    if (status.buttons1 == 0 && status.buttons2 == 0)
       Serial.print (F("(no buttons)"));
 
     Serial.println();
