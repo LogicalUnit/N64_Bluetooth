@@ -2,8 +2,9 @@
 #include "BlueSmirf_HID.h"
 
 N64_Controller controller;
-N64_Status status, oldStatus;
+N64_Status status, old_status;
 BlueSmirf_HID bluetooth;
+byte command_status[] = { COMMAND_STATUS };
 
 void setup()
 {
@@ -12,25 +13,24 @@ void setup()
 } //setup
 
 void loop()
-{
-  //byte sendBuf[] = { COMMAND_STATUS };
+{  
 
   noInterrupts();
-  //controller.N64_send(sendBuf, sizeof sendBuf);
-  controller.sendStatusByte();
-  controller.N64_get((byte*) &status, sizeof status);
+  //controller.sendStatusByte(); //this function does the same as the functions below, but its timings are hardcoded
+  controller.N64_send(command_status, sizeof command_status); //this is how we send the status command to the controller
+  controller.N64_get((byte*) &status, sizeof status); //this is how we receive the status response
   interrupts();
 
   if (status.stick_y == -128) //we need to invert the y-axis, but due to the way integers are stored, -128 is like 0 and cannot change its sign
     status.stick_y = -127;
 
-  if (memcmp (&status, &oldStatus, sizeof status) != 0) //If the status has changed
+  if (memcmp (&status, &old_status, sizeof status) != 0) //If the status has changed
   {
     bluetooth.sendUpdate(status.stick_x, -status.stick_y, 0, 0, status.buttons1, status.buttons2);
     //printN64status(status);
-    oldStatus = status;
+    old_status = status;
   }
 
-  delay(50);
+  delay(50); //check controller 20 times per second
 
 } //loop
