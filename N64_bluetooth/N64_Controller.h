@@ -42,6 +42,13 @@ typedef struct {
 
 void printN64status(N64_status status);
 
+//data pin
+#define N64_PIN 2
+#define N64_PIN_DIR DDRD
+
+//set this equal to 1<<N64_PIN
+#define N64_PIN_MASK 0x04
+
 class N64_controller
 {
   public:

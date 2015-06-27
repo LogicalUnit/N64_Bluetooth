@@ -4,16 +4,14 @@
 
 #include <avr/wdt.h>
 
-#define N64_PIN 2
-#define N64_PIN_DIR DDRD
-
 // these two macros set arduino pin 2 to input or output, which with an
 // external 1K pull-up resistor to the 3.3V rail, is like pulling it high or
 // low.  These operations translate to 1 op code, which takes 2 cycles
-#define N64_HIGH    N64_PIN_DIR &= ~0x04
-#define N64_LOW     N64_PIN_DIR |= 0x04
-#define N64_QUERY  (PIND & 0x04)
+#define N64_HIGH    N64_PIN_DIR &= ~N64_PIN_MASK
+#define N64_LOW     N64_PIN_DIR |= N64_PIN_MASK
+#define N64_QUERY  (PIND & N64_PIN_MASK)
 
+//Do norhing for 1 cycle, which is 1/16 of a microsecond on Arduino Uno
 #define nop asm volatile ("nop\n\t")
 
 N64_controller::N64_controller()
