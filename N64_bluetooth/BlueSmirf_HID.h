@@ -1,25 +1,22 @@
 /*
-
-
-
+  BlueSmirf_HID
+  John Crain Welsby aka LogicalUnit, john.welsby@gmail.com
+  Use a SparkFun BlueSmirf HID module as a bluetooth gamepad device
 */
 
-#ifndef N64_bluetooth_HID_h
-#define N64_bluetooth_HID_h
+#ifndef BlueSmirf_HID_H
+#define BlueSmirf_HID_H
 
-#include "N64_controller.h"
+#define BITRATE 115200
 
-class N64_bluetooth_HID
+typedef unsigned char byte;
+
+class BlueSmirf_HID
 {
   public:
-    N64_bluetooth_HID();
+    BlueSmirf_HID();
     void setup();
-    void updateController();
-    void sendBluetooth();
-
-  private:
-    N64_controller controller;
-    void sendUpdate(N64_status status);
+    void sendUpdate(char stick1_x, char stick1_y, char stick2_x, char stick2_y, byte buttons1, byte buttons2);
 };
 
 
