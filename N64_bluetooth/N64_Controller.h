@@ -10,7 +10,7 @@
 
 typedef unsigned char byte;
 
-// status data1:
+// status buttons1:
 const byte BUTTON_D_RIGHT = 0x01;
 const byte BUTTON_D_LEFT = 0x02;
 const byte BUTTON_D_DOWN = 0x04;
@@ -20,7 +20,7 @@ const byte BUTTON_Z = 0x20;
 const byte BUTTON_B = 0x40;
 const byte BUTTON_A = 0x80;
 
-// status data2:
+// status buttons2:
 const byte BUTTON_C_RIGHT = 0x01;
 const byte BUTTON_C_LEFT = 0x02;
 const byte BUTTON_C_DOWN = 0x04;
