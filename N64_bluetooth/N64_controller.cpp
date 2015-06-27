@@ -2,8 +2,6 @@
 
 #include "Arduino.h"
 
-int x = 0;
-
 #include <avr/wdt.h>
 
 #define N64_PIN 2

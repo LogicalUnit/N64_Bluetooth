@@ -1,9 +1,8 @@
 /*
-
-
-
-
-
+  N64_controller
+  John Crain Welsby aka LogicalUnit, john.welsby@gmail.com
+  Special thanks to Nick Gammon, Andrew Brown, Peter Den Hartog
+  Sends and receives data to a Nintendo 64 controller
 */
 
 #ifndef N64_Controller_H
