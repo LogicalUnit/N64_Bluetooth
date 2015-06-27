@@ -31,6 +31,6 @@ void loop()
     oldStatus = status;
   }
 
-  delay(100);
+  delay(50);
 
 } //loop
