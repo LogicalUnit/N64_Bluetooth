@@ -14,7 +14,7 @@ void BlueSmirf_HID::setup()
 
   Serial.print("$$$"); //Enter command mode. No end of line.
   delay(1000);
-  Serial.println("SN,N64_blueooth"); //set name of device
+  Serial.println("SN,N64_bluetooth"); //set name of device
   delay(1000);
   Serial.println("SH,0210"); //switch to game pad mode
   delay(1000);
