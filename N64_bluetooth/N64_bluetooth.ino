@@ -13,7 +13,7 @@ void setup()
 } //setup
 
 void loop()
-{  
+{
 
   noInterrupts();
   //controller.sendStatusByte(); //this function does the same as the functions below, but its timings are hardcoded
@@ -21,7 +21,7 @@ void loop()
   controller.N64_get((byte*) &status, sizeof status); //this is how we receive the status response
   interrupts();
 
-  if (status.stick_y == -128) //we need to invert the y-axis, but due to the way integers are stored, -128 is like 0 and cannot change its sign
+  if (status.stick_y == -128) //we need to invert the y-axis, but due to the way integers are represented, -128 is like 0 and we cannot change its sign
     status.stick_y = -127;
 
   if (memcmp (&status, &old_status, sizeof status) != 0) //If the status has changed
