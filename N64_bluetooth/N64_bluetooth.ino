@@ -1,4 +1,4 @@
-#include "N64_controller.h"
+#include "N64_Controller.h"
 #include "BlueSmirf_HID.h"
 
 N64_controller controller;
