@@ -49,10 +49,10 @@ void printN64status(N64_status status);
 //set this equal to 1<<N64_PIN
 #define N64_PIN_MASK 0x04
 
-class N64_controller
+class N64_Controller
 {
   public:
-    N64_controller();
+    N64_Controller();
 
     void sendStatusByte();
 

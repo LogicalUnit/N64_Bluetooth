@@ -14,7 +14,7 @@
 //Do norhing for 1 cycle, which is 1/16 of a microsecond on Arduino Uno
 #define nop asm volatile ("nop\n\t")
 
-N64_controller::N64_controller()
+N64_Controller::N64_Controller()
 {
   digitalWrite(N64_PIN, LOW); 
   pinMode (N64_PIN, INPUT);  // do not make OUTPUT or INPUT_PULLUP! This will fry the controller!
@@ -25,7 +25,7 @@ N64_controller::N64_controller()
   Hardcode the function to ensure correct timings
 */
 
-void N64_controller::sendStatusByte()
+void N64_Controller::sendStatusByte()
 {
   //bit 1 (0)
   N64_LOW;
@@ -130,7 +130,7 @@ void N64_controller::sendStatusByte()
   N64_HIGH;
 }
 
-void N64_controller::N64_send(byte * output, byte length)
+void N64_Controller::N64_send(byte * output, byte length)
 {
   byte bitOn;
   byte bits;
@@ -208,7 +208,7 @@ void N64_controller::N64_send(byte * output, byte length)
 
 }
 
-void N64_controller::N64_get(byte * output, byte length)
+void N64_Controller::N64_get(byte * output, byte length)
 {
   byte bits;
 
