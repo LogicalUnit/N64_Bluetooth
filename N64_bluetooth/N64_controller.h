@@ -6,10 +6,10 @@
 
 */
 
-#ifndef N64_controller_h
-#define N64_controller_h
+#ifndef N64_Controller_H
+#define N64_Controller_H
 
-#include "Arduino.h"
+typedef unsigned char byte;
 
 // status data1:
 const byte BUTTON_D_RIGHT = 0x01;
@@ -49,14 +49,10 @@ class N64_controller
     N64_controller();
 
     void sendStatusByte();
-    void receiveStatus();
-    N64_status getStatus();
 
     void N64_send (byte * output, byte length);
     void N64_get(byte * output, byte length);
 
-  private:
-    N64_status status;
 };
 
 #endif

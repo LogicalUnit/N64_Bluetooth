@@ -1,4 +1,8 @@
-#include "N64_controller.h"
+#include "N64_Controller.h"
+
+#include "Arduino.h"
+
+int x = 0;
 
 #include <avr/wdt.h>
 
@@ -16,14 +20,13 @@
 
 N64_controller::N64_controller()
 {
+  digitalWrite(N64_PIN, LOW); 
   pinMode (N64_PIN, INPUT);  // do not make OUTPUT or INPUT_PULLUP! This will fry the controller!
-  //status = 0;
 }
 
 
 /*
-  Although we could write logic to send an arbitrary byte to the controller,
-  in practice we will only send 0x01 which is a request for input
+  Hardcode the function to ensure correct timings
 */
 
 void N64_controller::sendStatusByte()
@@ -129,22 +132,6 @@ void N64_controller::sendStatusByte()
   nop; nop; nop; nop; nop; nop; nop; nop;
   nop; nop; nop; nop; nop; nop;
   N64_HIGH;
-  /*  nop; nop; nop; nop; nop; nop; nop; nop;
-    nop; nop; nop; nop; nop; nop; nop; nop;
-    nop; nop; nop; nop; nop; nop; nop; nop;
-    nop; nop; nop; nop; nop; nop; nop; nop;
-    nop; nop; nop; nop; nop; nop; nop; nop;
-    nop; nop; nop; nop; nop; nop;*/
-}
-
-void N64_controller::receiveStatus()
-{
-  N64_get((byte *) &status, sizeof status);
-}
-
-N64_status N64_controller::getStatus()
-{
-  return status;
 }
 
 void N64_controller::N64_send(byte * output, byte length)
