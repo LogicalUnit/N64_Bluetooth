@@ -254,7 +254,7 @@ void N64_Controller::N64_get(byte * output, byte length)
   wdt_disable();  // disable watchdog
 }
 
-void printN64status(N64_status status)
+void printN64status(N64_Status status)
 {
   if (Serial)
   {

@@ -37,10 +37,10 @@ typedef struct {
   byte buttons2;
   char stick_x;
   char stick_y;
-} N64_status;
+} N64_Status;
 
 
-void printN64status(N64_status status);
+void printN64status(N64_Status status);
 
 //data pin
 #define N64_PIN 2

@@ -2,7 +2,7 @@
 #include "BlueSmirf_HID.h"
 
 N64_Controller controller;
-N64_status status, oldStatus;
+N64_Status status, oldStatus;
 BlueSmirf_HID bluetooth;
 
 void setup()
