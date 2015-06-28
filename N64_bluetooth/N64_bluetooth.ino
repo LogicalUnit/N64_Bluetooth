@@ -8,6 +8,8 @@ byte command_status[] = { COMMAND_STATUS };
 
 void setup()
 {
+  Serial.begin(115200);
+  
   bluetooth.setup();
 
 } //setup
@@ -16,7 +18,6 @@ void loop()
 {
 
   noInterrupts();
-  //controller.sendStatusByte(); //this function does the same as the functions below, but its timings are hardcoded
   controller.N64_send(command_status, sizeof command_status); //this is how we send the status command to the controller
   controller.N64_get((byte*) &status, sizeof status); //this is how we receive the status response
   interrupts();

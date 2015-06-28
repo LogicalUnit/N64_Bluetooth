@@ -7,8 +7,6 @@
 #ifndef BlueSmirf_HID_H
 #define BlueSmirf_HID_H
 
-#define BITRATE 115200
-
 typedef unsigned char byte;
 
 class BlueSmirf_HID
