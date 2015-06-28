@@ -16,7 +16,7 @@
 
 N64_Controller::N64_Controller()
 {
-  digitalWrite(N64_PIN, LOW); 
+  digitalWrite(N64_PIN, LOW);
   pinMode (N64_PIN, INPUT);  // do not make OUTPUT or INPUT_PULLUP! This will fry the controller!
 }
 
@@ -256,49 +256,46 @@ void N64_Controller::N64_get(byte * output, byte length)
 
 void printN64status(N64_Status status)
 {
-  if (Serial)
-  {
-    Serial.print ("X: ");
-    Serial.print ((int) status.stick_x);
-    Serial.print (" ");
+  Serial.print (F("X: "));
+  Serial.print ((int) status.stick_x);
+  Serial.print (F(" "));
 
-    Serial.print ("Y: ");
-    Serial.print ((int) status.stick_y);
-    Serial.print (" ");
+  Serial.print (F("Y: "));
+  Serial.print ((int) status.stick_y);
+  Serial.print (F(" "));
 
-    if (status.buttons2 &  BUTTON_C_RIGHT)
-      Serial.print (F("C right "));
-    if (status.buttons2 &  BUTTON_C_LEFT)
-      Serial.print (F("C left "));
-    if (status.buttons2 &  BUTTON_C_UP)
-      Serial.print (F("C up "));
-    if (status.buttons2 &  BUTTON_C_DOWN)
-      Serial.print (F("C down "));
-    if (status.buttons2 &  BUTTON_R)
-      Serial.print (F("R "));
-    if (status.buttons2 &  BUTTON_L)
-      Serial.print (F("L "));
-    if (status.buttons1 &  BUTTON_D_RIGHT)
-      Serial.print (F("D right "));
-    if (status.buttons1 &  BUTTON_D_LEFT)
-      Serial.print (F("D left "));
-    if (status.buttons1 &  BUTTON_D_UP)
-      Serial.print (F("D up "));
-    if (status.buttons1 &  BUTTON_D_DOWN)
-      Serial.print (F("D down "));
-    if (status.buttons1 &  BUTTON_START)
-      Serial.print (F("Start "));
-    if (status.buttons1 &  BUTTON_Z)
-      Serial.print (F("Z "));
-    if (status.buttons1 &  BUTTON_B)
-      Serial.print (F("B "));
-    if (status.buttons1 &  BUTTON_A)
-      Serial.print (F("A "));
+  if (status.buttons2 &  BUTTON_C_RIGHT)
+    Serial.print (F("C right "));
+  if (status.buttons2 &  BUTTON_C_LEFT)
+    Serial.print (F("C left "));
+  if (status.buttons2 &  BUTTON_C_UP)
+    Serial.print (F("C up "));
+  if (status.buttons2 &  BUTTON_C_DOWN)
+    Serial.print (F("C down "));
+  if (status.buttons2 &  BUTTON_R)
+    Serial.print (F("R "));
+  if (status.buttons2 &  BUTTON_L)
+    Serial.print (F("L "));
+  if (status.buttons1 &  BUTTON_D_RIGHT)
+    Serial.print (F("D right "));
+  if (status.buttons1 &  BUTTON_D_LEFT)
+    Serial.print (F("D left "));
+  if (status.buttons1 &  BUTTON_D_UP)
+    Serial.print (F("D up "));
+  if (status.buttons1 &  BUTTON_D_DOWN)
+    Serial.print (F("D down "));
+  if (status.buttons1 &  BUTTON_START)
+    Serial.print (F("Start "));
+  if (status.buttons1 &  BUTTON_Z)
+    Serial.print (F("Z "));
+  if (status.buttons1 &  BUTTON_B)
+    Serial.print (F("B "));
+  if (status.buttons1 &  BUTTON_A)
+    Serial.print (F("A "));
 
-    if (status.buttons1 == 0 && status.buttons2 == 0)
-      Serial.print (F("(no buttons)"));
+  if (status.buttons1 == 0 && status.buttons2 == 0)
+    Serial.print (F("(no buttons)"));
 
-    Serial.println();
-    Serial.flush();
-  }
+  Serial.println();
+  Serial.flush();
 }
