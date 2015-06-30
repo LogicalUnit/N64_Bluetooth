@@ -1,9 +1,8 @@
 #include "N64_Controller.h"
-#include "BlueSmirf_HID.h"
 
 
 //Comment the following line to disable bluetooth. Do this to test the N64 controller with Serial Monitor. Physically disconnect the BlueSmirf module.
-#define BLUETOOTH_ENABLE
+//#define BLUETOOTH_ENABLE
 
 //This is the speed of the serial connection when Bluetooth is disabled.
 #define SERIAL_BITRATE 115200
@@ -14,6 +13,7 @@ N64_Status status, old_status;
 byte command_status[] = { COMMAND_STATUS };
 
 #ifdef BLUETOOTH_ENABLE
+#include "BlueSmirf_HID.h"
 BlueSmirf_HID bluetooth;
 #endif
 
