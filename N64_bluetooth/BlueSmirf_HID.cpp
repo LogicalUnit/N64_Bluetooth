@@ -1,4 +1,4 @@
-  #include "BlueSmirf_HID.h"
+#include "BlueSmirf_HID.h"
 
 #include "Arduino.h"
 
@@ -10,6 +10,8 @@ BlueSmirf_HID::BlueSmirf_HID()
 
 void BlueSmirf_HID::setup()
 {
+  Serial.begin(115200);
+
   Serial.print("$$$"); //Enter command mode. No end of line.
   delay(1000);
   Serial.println("SN,N64_bluetooth"); //set name of device
