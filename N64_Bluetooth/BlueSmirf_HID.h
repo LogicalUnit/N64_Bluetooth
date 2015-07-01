@@ -13,6 +13,7 @@ class BlueSmirf_HID
 {
   public:
     BlueSmirf_HID();
+    
     void setup();
     void sendUpdate(char stick1_x, char stick1_y, char stick2_x, char stick2_y, byte buttons1, byte buttons2);
 };
