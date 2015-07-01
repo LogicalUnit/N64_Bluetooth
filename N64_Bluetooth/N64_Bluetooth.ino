@@ -2,17 +2,18 @@
   John Crain Welsby aka LogicalUnit, john.welsby@gmail.com, June 2015
   This project turns a standard N64 controller into a Bluetooth HID device, compatible with Windows, iOS, Android, Mac, Linux
   You will need: Nintendo 64 controller, Arduino Uno, SparkFun Protoshield, SparkFun BlueSMiRF HID module, hook-up wire, heatshrink, soldering iron, etc.
-  You also need a battery with a barrel jack connector to power the Arduino. I used a small 2S LiPo, but a standard 9 volt should work too.
-  Solder the protoshield together (instructions on sparkfun.com), solder a stackable header to the BlueSMiRF port,
-  solder header pins to the BlueSmirf HID so that it mates with the protoshield (do not solder it directly to the protoshield).
+  You will also need a battery with a barrel jack connector to power the Arduino. I used a small 2S LiPo, but a standard 9 volt should work too.
+  Solder the protoshield together (instructions on sparkfun.com), solder a stackable header to the BlueSMiRF port.
+  Solder header pins to the BlueSmirf HID so that it mates with the protoshield (do not solder it directly to the protoshield).
   Stick three lengths of hookup wire into the N64 controller's connector. I recommend bending the hookup wire for good contact.
-  Solder the hookup wire to 3.3V, GND, and D2. There should be an image showing the N64 pin configuration.
-  Use heakshrink to hold the hook-up wire in place. Upload sketch to Arduino. Detect, connect, and use like any bluetooth controller.
+  Use heakshrink to hold the hook-up wire in place. Solder the hookup wire to 3.3V, GND, and D2. 
+  There should be an image showing the N64 pin configuration. Upload sketch to Arduino. 
+  Detect, connect, and use like any bluetooth controller.
 */
 
 
 //Comment the following line to disable bluetooth. Do this to test the N64 controller with Serial Monitor. Physically disconnect the BlueSmirf module.
-#define BLUETOOTH_ENABLE
+//#define BLUETOOTH_ENABLE
 
 //This is the speed of the serial connection when Bluetooth is disabled.
 #define SERIAL_BITRATE 115200
