@@ -3,14 +3,14 @@ Turn an N64 controller into a bluetooth HID device
 
 You will need:
 
-Nintendo 64 Controller
-Arduino Uno
-Sparkfun Protoshield
-Sparkfun BlueSMiRF HID module
-Battery with Barrel Jack connector (standard 9V battery will work)
-Hook-up wire
-Heatshrink
-Soldering iron, etc.
+Nintendo 64 Controller,
+Arduino Uno,
+Sparkfun Protoshield,
+Sparkfun BlueSMiRF HID module,
+Battery with Barrel Jack connector (standard 9V battery will work),
+Hook-up wire,
+Heatshrink,
+Soldering iron etc.
 
 Instructions:
 
